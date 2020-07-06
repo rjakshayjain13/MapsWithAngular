@@ -1,5 +1,16 @@
 <agm-map 
     [latitude]="lat"
     [longitude]="lng"
-    [zoom]="zoom">
+    [zoom]="zoom"
+    [mapTypeId]="mapType">
+    <agm-marker
+        *ngFor="let marker of markers"
+        [latitude]="marker.lat"
+        [longitude]="marker.lng"
+        [label]="marker.label"
+        [title]="marker.title"
+        [animation]="marker.animation"
+        [opacity]="marker.opacity"
+        [markerDraggable]="marker.draggable">
+    </agm-marker>
 </agm-map>
