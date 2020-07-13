@@ -1,5 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { } from '@agm/core';
+import { marker } from './shared/marker.model';
+import { MarkersService } from './services/markers.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +12,21 @@ export class AppComponent {
   // Initial settings for the map
   lat: number;
   lng: number;
-  zoom: number = 12;
+  zoom: number = 11;
   mapType: string = 'terrain';
+  markers: marker[];
 
-  constructor() {
+  constructor(private markersService: MarkersService) { }
+
+  ngOnInit() {
+    this.getMarkers();
     this.initializeMap(this.markers[0]);
+  }
+
+  getMarkers() {
+    this.markersService.getMarkers().subscribe(data => {
+      this.markers = data;
+    });
   }
 
   // Sets the center of the map
@@ -23,52 +35,4 @@ export class AppComponent {
     this.lng = data.lng;
 
   }
-  markers: marker[] = [
-    {
-      animation: 'bounce',
-      draggable: false,
-      lat: 49.220,
-      lng: -122.773,
-      opacity: 1,
-      title: 'Random',
-      label: 'Y'
-    },
-    {
-      draggable: true,
-      lat: 49.204,
-      lng: -122.836,
-      opacity: 0.63,
-      title: 'Bakery'
-    },
-    {
-      animation: 'drop',
-      draggable: true,
-      lat: 49.191,
-      lng: -122.762,
-    },
-    {
-      draggable: true,
-      lat: 49.248,
-      lng: -122.797,
-      opacity: 1,
-      title: 'Store'
-    },
-    {
-      animation: 'drop',
-      draggable: false,
-      label: 'R',
-      lat: 49.213,
-      lng: -122.673
-    },
-  ]; 
-}
-
-interface marker {
-  animation?: string,
-  draggable: boolean, 
-  label?: string,
-  lat: number,
-  lng: number,
-  opacity?: number,
-  title?: string
 }

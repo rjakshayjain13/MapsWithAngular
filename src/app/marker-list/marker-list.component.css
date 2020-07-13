@@ -1,0 +1,9 @@
+#marker-list-container {
+    height: 100%;
+    width: 100%;
+}
+
+.marker-list-item {
+    padding: 15px;
+    border-bottom: 1px solid lightgray;
+}

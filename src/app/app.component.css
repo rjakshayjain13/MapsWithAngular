@@ -1,3 +1,15 @@
 agm-map {
     height: 100%;
 }
+
+app-marker-list {
+    position: absolute;
+    top: 0;
+    margin: 10px 0 10px 10px;
+    height: 97%;
+    width: 15rem;
+    background-color: white;
+    float: left;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
