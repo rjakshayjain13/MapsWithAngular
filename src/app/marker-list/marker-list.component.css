@@ -1,9 +1,16 @@
 #marker-list-container {
     height: 100%;
     width: 100%;
+    overflow-y: auto;
 }
 
 .marker-list-item {
     padding: 15px;
     border-bottom: 1px solid lightgray;
+}
+
+.marker-list-item__label {
+    float: right;
+    padding-left: 15px; 
+    border-left: 1px solid lightgray;
 }
