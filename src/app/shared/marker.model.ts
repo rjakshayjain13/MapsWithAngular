@@ -5,5 +5,7 @@ export interface marker {
     lat: number,
     lng: number,
     opacity?: number,
-    title: string
+    title: string,
+    description: string,
+    descriptionSource?: string
   }

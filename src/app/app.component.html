@@ -12,6 +12,9 @@
         [animation]="marker.animation"
         [opacity]="marker.opacity"
         [markerDraggable]="marker.draggable">
+        <agm-info-window>
+            {{marker.description}}
+        </agm-info-window>
     </agm-marker>
 </agm-map>
 <app-marker-list [markers]="markers"></app-marker-list>
